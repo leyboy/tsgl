@@ -2,17 +2,17 @@ package com.syc.tsgl.entity;
 
 public class Tearcher {
 	
-	private String teacherid;
+	private String teacherid; //教师编号
 
-	private String teachername;
+	private String teachername; //教师名
 
-	private String college;
+	private String college;  //教师所属学院
 
-	private Integer teacherage;
+	private Integer teacherage; //教师年龄
 
-	private String title;
+	private String title; //教师职称
 
-	private Integer classid;
+	private Integer classid;  //上课班级id
 
 	public String getTeacherid() {
 		return teacherid;
@@ -61,4 +61,11 @@ public class Tearcher {
 	public void setClassid(Integer classid) {
 		this.classid = classid;
 	}
+
+	@Override
+	public String toString() {
+		return "Tearcher [teacherid=" + teacherid + ", teachername=" + teachername + ", college=" + college
+				+ ", teacherage=" + teacherage + ", title=" + title + ", classid=" + classid + "]";
+	}
+	
 }

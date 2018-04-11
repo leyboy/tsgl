@@ -1,11 +1,15 @@
 package com.syc.tsgl.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.syc.tsgl.entity.Student;
 
 @Repository
 public interface StudentMapper {
+	
     int deleteByPrimaryKey(String studentid);
 
     int insert(Student record);
@@ -17,4 +21,6 @@ public interface StudentMapper {
     int updateByPrimaryKeySelective(Student record);
 
     int updateByPrimaryKey(Student record);
+    
+    List<Student> listStudentByClassId(@Param("classId") Integer id);
 }

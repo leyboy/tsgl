@@ -1,17 +1,20 @@
 package com.syc.tsgl.entity;
 
+
+/**
+ * 课程表对应的实体类
+ * **/
 public class Clazz {
-    private Integer classid;
+	
+    private Integer classid; //课程id
 
-    private String classname;
+    private String classname; //课程名
+ 
+    private String classtime; //上课时间~下课时间
 
-    private String classtime;
+    private Integer classhours; //课程学时数
 
-    private Integer classhours;
-
-    private Integer classprogress;
-
-    private Integer courseid;
+    private Integer classprogress; //已上课程学时数
 
 	public Integer getClassid() {
 		return classid;
@@ -31,10 +34,6 @@ public class Clazz {
 
 	public Integer getClassprogress() {
 		return classprogress;
-	}
-
-	public Integer getCourseid() {
-		return courseid;
 	}
 
 	public void setClassid(Integer classid) {
@@ -57,15 +56,9 @@ public class Clazz {
 		this.classprogress = classprogress;
 	}
 
-	public void setCourseid(Integer courseid) {
-		this.courseid = courseid;
-	}
-
 	@Override
 	public String toString() {
 		return "Clazz [classid=" + classid + ", classname=" + classname + ", classtime=" + classtime + ", classhours="
-				+ classhours + ", classprogress=" + classprogress + ", courseid=" + courseid + "]";
+				+ classhours + ", classprogress=" + classprogress + "]";
 	}
-
-
 }

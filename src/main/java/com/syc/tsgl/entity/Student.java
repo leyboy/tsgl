@@ -1,63 +1,70 @@
 package com.syc.tsgl.entity;
 
+/**
+ * 学生表对应实体类
+ **/
 public class Student {
-    private String studentid;
 
-    private String studentname;
+	private String studentid; // 学生id
 
-    private String studentmajor;
+	private String studentname; // 学生名
 
-    private String studentgroup;
+	private String studentmajor; // 学生专业
 
-    private Boolean studentstate;
+	private String studentgroup; // 学生分组
 
-    private Integer classid;
+	private Boolean studentstate; // 学生状态(是否去上课)
 
-    public String getStudentid() {
-        return studentid;
-    }
+	private Integer classid;
 
-    public void setStudentid(String studentid) {
-        this.studentid = studentid == null ? null : studentid.trim();
-    }
+	public String getStudentid() {
+		return studentid;
+	}
 
-    public String getStudentname() {
-        return studentname;
-    }
+	public void setStudentid(String studentid) {
+		this.studentid = studentid == null ? null : studentid.trim();
+	}
 
-    public void setStudentname(String studentname) {
-        this.studentname = studentname == null ? null : studentname.trim();
-    }
+	public String getStudentname() {
+		return studentname;
+	}
 
-    public String getStudentmajor() {
-        return studentmajor;
-    }
+	public void setStudentname(String studentname) {
+		this.studentname = studentname == null ? null : studentname.trim();
+	}
 
-    public void setStudentmajor(String studentmajor) {
-        this.studentmajor = studentmajor == null ? null : studentmajor.trim();
-    }
+	public String getStudentmajor() {
+		return studentmajor;
+	}
 
-    public String getStudentgroup() {
-        return studentgroup;
-    }
+	public void setStudentmajor(String studentmajor) {
+		this.studentmajor = studentmajor == null ? null : studentmajor.trim();
+	}
 
-    public void setStudentgroup(String studentgroup) {
-        this.studentgroup = studentgroup == null ? null : studentgroup.trim();
-    }
+	public String getStudentgroup() {
+		return studentgroup;
+	}
 
-    public Boolean getStudentstate() {
-        return studentstate;
-    }
+	public void setStudentgroup(String studentgroup) {
+		this.studentgroup = studentgroup == null ? null : studentgroup.trim();
+	}
 
-    public void setStudentstate(Boolean studentstate) {
-        this.studentstate = studentstate;
-    }
+	public Boolean getStudentstate() {
+		return studentstate;
+	}
 
-    public Integer getClassid() {
-        return classid;
-    }
+	public void setStudentstate(Boolean studentstate) {
+		this.studentstate = studentstate;
+	}
 
-    public void setClassid(Integer classid) {
-        this.classid = classid;
-    }
+	public Integer getClassid() {
+		return classid;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [studentid=" + studentid + ", studentname=" + studentname + ", studentmajor=" + studentmajor
+				+ ", studentgroup=" + studentgroup + ", studentstate=" + studentstate + ", classid=" + classid + "]";
+	}
+
 }

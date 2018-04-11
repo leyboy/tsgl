@@ -1,106 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.syc.tsgl.dao.TearcherMapper">
-  <resultMap id="BaseResultMap" type="com.syc.tsgl.entity.Tearcher">
-    <id column="teacherId" jdbcType="VARCHAR" property="teacherid" />
-    <result column="teacherName" jdbcType="VARCHAR" property="teachername" />
-    <result column="college" jdbcType="VARCHAR" property="college" />
-    <result column="teacherAge" jdbcType="INTEGER" property="teacherage" />
-    <result column="title" jdbcType="VARCHAR" property="title" />
-    <result column="classId" jdbcType="INTEGER" property="classid" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    teacherId, teacherName, college, teacherAge, title, classId
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from tb_teacher
-    where teacherId = #{teacherid,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from tb_teacher
-    where teacherId = #{teacherid,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.syc.tsgl.entity.Tearcher">
-    insert into tb_teacher (teacherId, teacherName, college, 
-      teacherAge, title, classId
-      )
-    values (#{teacherid,jdbcType=VARCHAR}, #{teachername,jdbcType=VARCHAR}, #{college,jdbcType=VARCHAR}, 
-      #{teacherage,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{classid,jdbcType=INTEGER}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.syc.tsgl.entity.Tearcher">
-    insert into tb_teacher
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="teacherid != null">
-        teacherId,
-      </if>
-      <if test="teachername != null">
-        teacherName,
-      </if>
-      <if test="college != null">
-        college,
-      </if>
-      <if test="teacherage != null">
-        teacherAge,
-      </if>
-      <if test="title != null">
-        title,
-      </if>
-      <if test="classid != null">
-        classId,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="teacherid != null">
-        #{teacherid,jdbcType=VARCHAR},
-      </if>
-      <if test="teachername != null">
-        #{teachername,jdbcType=VARCHAR},
-      </if>
-      <if test="college != null">
-        #{college,jdbcType=VARCHAR},
-      </if>
-      <if test="teacherage != null">
-        #{teacherage,jdbcType=INTEGER},
-      </if>
-      <if test="title != null">
-        #{title,jdbcType=VARCHAR},
-      </if>
-      <if test="classid != null">
-        #{classid,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.syc.tsgl.entity.Tearcher">
-    update tb_teacher
-    <set>
-      <if test="teachername != null">
-        teacherName = #{teachername,jdbcType=VARCHAR},
-      </if>
-      <if test="college != null">
-        college = #{college,jdbcType=VARCHAR},
-      </if>
-      <if test="teacherage != null">
-        teacherAge = #{teacherage,jdbcType=INTEGER},
-      </if>
-      <if test="title != null">
-        title = #{title,jdbcType=VARCHAR},
-      </if>
-      <if test="classid != null">
-        classId = #{classid,jdbcType=INTEGER},
-      </if>
-    </set>
-    where teacherId = #{teacherid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.syc.tsgl.entity.Tearcher">
-    update tb_teacher
-    set teacherName = #{teachername,jdbcType=VARCHAR},
-      college = #{college,jdbcType=VARCHAR},
-      teacherAge = #{teacherage,jdbcType=INTEGER},
-      title = #{title,jdbcType=VARCHAR},
-      classId = #{classid,jdbcType=INTEGER}
-    where teacherId = #{teacherid,jdbcType=VARCHAR}
-  </update>
+	<resultMap id="BaseResultMap" type="com.syc.tsgl.entity.Tearcher">
+		<id column="teacherId" jdbcType="VARCHAR" property="teacherid" />
+		<result column="teacherName" jdbcType="VARCHAR" property="teachername" />
+		<result column="college" jdbcType="VARCHAR" property="college" />
+		<result column="teacherAge" jdbcType="INTEGER" property="teacherage" />
+		<result column="title" jdbcType="VARCHAR" property="title" />
+		<result column="classId" jdbcType="INTEGER" property="classid" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		teacherId, teacherName, college, teacherAge, title, classId
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from tb_teacher
+		where teacherId = #{teacherid,jdbcType=VARCHAR}
+	</select>
+	<select id="listAllTearchers" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from tb_teacher
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from tb_teacher
+		where teacherId = #{teacherid,jdbcType=VARCHAR}
+	</delete>
+	<insert id="insert" parameterType="com.syc.tsgl.entity.Tearcher">
+		insert into tb_teacher (teacherId, teacherName, college,
+		teacherAge, title, classId
+		)
+		values (#{teacherid,jdbcType=VARCHAR}, #{teachername,jdbcType=VARCHAR},
+		#{college,jdbcType=VARCHAR},
+		#{teacherage,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{classid,jdbcType=INTEGER}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.syc.tsgl.entity.Tearcher">
+		insert into tb_teacher
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="teacherid != null">
+				teacherId,
+			</if>
+			<if test="teachername != null">
+				teacherName,
+			</if>
+			<if test="college != null">
+				college,
+			</if>
+			<if test="teacherage != null">
+				teacherAge,
+			</if>
+			<if test="title != null">
+				title,
+			</if>
+			<if test="classid != null">
+				classId,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="teacherid != null">
+				#{teacherid,jdbcType=VARCHAR},
+			</if>
+			<if test="teachername != null">
+				#{teachername,jdbcType=VARCHAR},
+			</if>
+			<if test="college != null">
+				#{college,jdbcType=VARCHAR},
+			</if>
+			<if test="teacherage != null">
+				#{teacherage,jdbcType=INTEGER},
+			</if>
+			<if test="title != null">
+				#{title,jdbcType=VARCHAR},
+			</if>
+			<if test="classid != null">
+				#{classid,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.syc.tsgl.entity.Tearcher">
+		update tb_teacher
+		<set>
+			<if test="teachername != null">
+				teacherName = #{teachername,jdbcType=VARCHAR},
+			</if>
+			<if test="college != null">
+				college = #{college,jdbcType=VARCHAR},
+			</if>
+			<if test="teacherage != null">
+				teacherAge = #{teacherage,jdbcType=INTEGER},
+			</if>
+			<if test="title != null">
+				title = #{title,jdbcType=VARCHAR},
+			</if>
+			<if test="classid != null">
+				classId = #{classid,jdbcType=INTEGER},
+			</if>
+		</set>
+		where teacherId = #{teacherid,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.syc.tsgl.entity.Tearcher">
+		update tb_teacher
+		set teacherName = #{teachername,jdbcType=VARCHAR},
+		college = #{college,jdbcType=VARCHAR},
+		teacherAge = #{teacherage,jdbcType=INTEGER},
+		title = #{title,jdbcType=VARCHAR},
+		classId = #{classid,jdbcType=INTEGER}
+		where teacherId = #{teacherid,jdbcType=VARCHAR}
+	</update>
 </mapper>

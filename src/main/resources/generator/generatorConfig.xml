@@ -43,11 +43,11 @@
 			enableCountByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" enableUpdateByExample="false">
 		</table>
-		<table tableName="tb_course_info" domainObjectName="CourseInfo"
+		<table tableName="tb_teacher" domainObjectName="Tearcher"
 			enableCountByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" enableUpdateByExample="false">
 		</table>
-		<table tableName="tb_teacher" domainObjectName="Tearcher"
+		<table tableName="tb_course_info" domainObjectName="CourseInfo"
 			enableCountByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" enableUpdateByExample="false">
 		</table>

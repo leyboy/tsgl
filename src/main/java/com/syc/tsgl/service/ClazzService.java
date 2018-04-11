@@ -1,8 +1,18 @@
 package com.syc.tsgl.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
-public class ClazzService {
+import com.syc.tsgl.entity.Clazz;
 
+public interface ClazzService {
+
+	int addClazz(Clazz clazz);
+	
+	int updateClazz(Clazz clazz);
+	
+	Clazz getClazzByClassName(String className);
+	
+	Clazz getClazzById(Integer clazzId);
+	
+	List<Clazz> listAllClazzs();
 }
