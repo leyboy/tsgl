@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.syc.tsgl.dao.CourseInfoMapper">
+  <resultMap id="BaseResultMap" type="com.syc.tsgl.entity.CourseInfo">
+    <id column="courseInfoId" jdbcType="INTEGER" property="courseinfoid" />
+    <result column="courseInfoChapterName" jdbcType="VARCHAR" property="courseinfochaptername" />
+    <result column="courseInfoChapterContent" jdbcType="VARCHAR" property="courseinfochaptercontent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    courseInfoId, courseInfoChapterName, courseInfoChapterContent
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_course_info
+    where courseInfoId = #{courseinfoid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_course_info
+    where courseInfoId = #{courseinfoid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.syc.tsgl.entity.CourseInfo">
+    insert into tb_course_info (courseInfoId, courseInfoChapterName, 
+      courseInfoChapterContent)
+    values (#{courseinfoid,jdbcType=INTEGER}, #{courseinfochaptername,jdbcType=VARCHAR}, 
+      #{courseinfochaptercontent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.syc.tsgl.entity.CourseInfo">
+    insert into tb_course_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="courseinfoid != null">
+        courseInfoId,
+      </if>
+      <if test="courseinfochaptername != null">
+        courseInfoChapterName,
+      </if>
+      <if test="courseinfochaptercontent != null">
+        courseInfoChapterContent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="courseinfoid != null">
+        #{courseinfoid,jdbcType=INTEGER},
+      </if>
+      <if test="courseinfochaptername != null">
+        #{courseinfochaptername,jdbcType=VARCHAR},
+      </if>
+      <if test="courseinfochaptercontent != null">
+        #{courseinfochaptercontent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.syc.tsgl.entity.CourseInfo">
+    update tb_course_info
+    <set>
+      <if test="courseinfochaptername != null">
+        courseInfoChapterName = #{courseinfochaptername,jdbcType=VARCHAR},
+      </if>
+      <if test="courseinfochaptercontent != null">
+        courseInfoChapterContent = #{courseinfochaptercontent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where courseInfoId = #{courseinfoid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.syc.tsgl.entity.CourseInfo">
+    update tb_course_info
+    set courseInfoChapterName = #{courseinfochaptername,jdbcType=VARCHAR},
+      courseInfoChapterContent = #{courseinfochaptercontent,jdbcType=VARCHAR}
+    where courseInfoId = #{courseinfoid,jdbcType=INTEGER}
+  </update>
+</mapper>
