@@ -8,6 +8,9 @@
 		<result column="teacherAge" jdbcType="INTEGER" property="teacherage" />
 		<result column="title" jdbcType="VARCHAR" property="title" />
 		<result column="classId" jdbcType="INTEGER" property="classid" />
+		<association property="clazz" column="classId" javaType="Clazz">
+			<result column="className" jdbcType="VARCHAR" property="classname"/>
+		</association>
 	</resultMap>
 	<sql id="Base_Column_List">
 		teacherId, teacherName, college, teacherAge, title, classId
@@ -21,8 +24,9 @@
 	</select>
 	<select id="listAllTearchers" resultMap="BaseResultMap">
 		select
-		<include refid="Base_Column_List" />
-		from tb_teacher
+		*
+		from tb_teacher t,tb_class c
+		where t.classId = c.classId
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
 		delete from tb_teacher

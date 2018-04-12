@@ -13,6 +13,8 @@ public class Tearcher {
 	private String title; //教师职称
 
 	private Integer classid;  //上课班级id
+	
+	private Clazz clazz; //课程实体
 
 	public String getTeacherid() {
 		return teacherid;
@@ -62,10 +64,17 @@ public class Tearcher {
 		this.classid = classid;
 	}
 
+	public Clazz getClazz() {
+		return clazz;
+	}
+
+	public void setClazz(Clazz clazz) {
+		this.clazz = clazz;
+	}
+
 	@Override
 	public String toString() {
 		return "Tearcher [teacherid=" + teacherid + ", teachername=" + teachername + ", college=" + college
-				+ ", teacherage=" + teacherage + ", title=" + title + ", classid=" + classid + "]";
+				+ ", teacherage=" + teacherage + ", title=" + title + ", classid=" + classid + ", clazz=" + clazz + "]";
 	}
-	
 }
