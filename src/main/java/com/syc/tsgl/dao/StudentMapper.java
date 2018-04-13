@@ -2,7 +2,7 @@ package com.syc.tsgl.dao;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
+
 import org.springframework.stereotype.Repository;
 
 import com.syc.tsgl.entity.Student;
@@ -22,5 +22,5 @@ public interface StudentMapper {
 
     int updateByPrimaryKey(Student record);
     
-    List<Student> listStudentByClassId(@Param("classId") Integer id);
+    List<Student> listAllStudents();
 }

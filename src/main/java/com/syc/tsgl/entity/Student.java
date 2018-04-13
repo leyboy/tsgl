@@ -16,6 +16,8 @@ public class Student {
 	private Boolean studentstate; // 学生状态(是否去上课)
 
 	private Integer classid;
+	
+	private Clazz clazz;
 
 	public String getStudentid() {
 		return studentid;
@@ -61,10 +63,22 @@ public class Student {
 		return classid;
 	}
 
+	public Clazz getClazz() {
+		return clazz;
+	}
+
+	public void setClazz(Clazz clazz) {
+		this.clazz = clazz;
+	}
+
+	public void setClassid(Integer classid) {
+		this.classid = classid;
+	}
+
 	@Override
 	public String toString() {
 		return "Student [studentid=" + studentid + ", studentname=" + studentname + ", studentmajor=" + studentmajor
-				+ ", studentgroup=" + studentgroup + ", studentstate=" + studentstate + ", classid=" + classid + "]";
+				+ ", studentgroup=" + studentgroup + ", studentstate=" + studentstate + ", classid=" + classid
+				+ ", clazz=" + clazz + "]";
 	}
-
 }

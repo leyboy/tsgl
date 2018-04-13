@@ -2,6 +2,7 @@ package com.syc.tsgl.service;
 
 import java.util.List;
 
+
 import com.syc.tsgl.entity.CourseInfo;
 
 public interface CourseInfoService {
@@ -10,7 +11,11 @@ public interface CourseInfoService {
 	
 	int updateCourseInfo(CourseInfo courseInfo);
 	
+	CourseInfo getCourseInfoByIdAndDwr();
+	
 	CourseInfo getCourseInfoById(Integer courseInfoId);
 	
-	List<CourseInfo> listCourseInfosByClassId(Integer classId);
+	List<CourseInfo> listCourseInfosByCourseName(String courseName);
+	
+	List<CourseInfo> listAllCourseInfos();
 }

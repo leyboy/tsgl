@@ -1,20 +1,23 @@
 package com.syc.tsgl.entity;
 
+import java.util.List;
 
 /**
  * 课程表对应的实体类
- * **/
+ **/
 public class Clazz {
-	
-    private Integer classid; //课程id
 
-    private String classname; //课程名
- 
-    private String classtime; //上课时间~下课时间
+	private Integer classid; // 课程id
 
-    private Integer classhours; //课程学时数
+	private String classname; // 班级名
 
-    private Integer classprogress; //已上课程学时数
+	private String classtime; // 上课时间~下课时间
+
+	private Integer classhours; // 课程学时数
+
+	private Integer classprogress; // 已上课程学时数
+
+	private List<CourseInfo> courseInfos;
 
 	public Integer getClassid() {
 		return classid;
@@ -56,9 +59,17 @@ public class Clazz {
 		this.classprogress = classprogress;
 	}
 
+	public List<CourseInfo> getCourseInfos() {
+		return courseInfos;
+	}
+
+	public void setCourseInfos(List<CourseInfo> courseInfos) {
+		this.courseInfos = courseInfos;
+	}
+
 	@Override
 	public String toString() {
 		return "Clazz [classid=" + classid + ", classname=" + classname + ", classtime=" + classtime + ", classhours="
-				+ classhours + ", classprogress=" + classprogress + "]";
+				+ classhours + ", classprogress=" + classprogress + ", courseInfos=" + courseInfos + "]";
 	}
 }

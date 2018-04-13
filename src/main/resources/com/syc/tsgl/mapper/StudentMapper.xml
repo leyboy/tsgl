@@ -8,6 +8,9 @@
 		<result column="studentGroup" jdbcType="VARCHAR" property="studentgroup" />
 		<result column="studentState" jdbcType="BIT" property="studentstate" />
 		<result column="classId" jdbcType="INTEGER" property="classid" />
+		<association property="clazz" javaType="Clazz">
+			<result column="className" jdbcType="VARCHAR" property="classname" />
+		</association>
 	</resultMap>
 	<sql id="Base_Column_List">
 		studentId, studentName, studentMajor, studentGroup, studentState, classId
@@ -19,12 +22,12 @@
 		from tb_student
 		where studentId = #{studentid,jdbcType=VARCHAR}
 	</select>
-	<select id="listStudentByClassId" parameterType="java.lang.Integer"
+	<select id="listAllStudents" 
 		resultMap="BaseResultMap">
 		select
-		<include refid="Base_Column_List" />
-		from tb_student
-		where classid = #{classId}
+		*
+		from tb_student s,tb_class c
+		where s.classid = c.classid
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
 		delete from tb_student

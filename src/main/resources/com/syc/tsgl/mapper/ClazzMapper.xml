@@ -7,6 +7,11 @@
 		<result column="classTime" jdbcType="VARCHAR" property="classtime" />
 		<result column="classHours" jdbcType="TINYINT" property="classhours" />
 		<result column="classProgress" jdbcType="TINYINT" property="classprogress" />
+		<collection property="courseInfos" ofType="CourseInfo">
+			<result column="courseName" property="courseName" jdbcType="VARCHAR" />
+			<result column="courseInfoChapterName" jdbcType="VARCHAR"
+				property="courseinfochaptername" />
+		</collection>
 	</resultMap>
 	<sql id="Base_Column_List">
 		classId, className, classTime, classHours, classProgress
@@ -24,8 +29,10 @@
 	</select>
 	<select id="listAllClazzs" resultMap="BaseResultMap">
 		select
-		<include refid="Base_Column_List"></include>
+		*
 		from tb_class
+		c,tb_course_info ci
+		where c.classId = ci.classid
 	</select>
 	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
 		resultMap="BaseResultMap">

@@ -2,7 +2,7 @@ package com.syc.tsgl.dao;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
+
 import org.springframework.stereotype.Repository;
 
 import com.syc.tsgl.entity.CourseInfo;
@@ -22,5 +22,7 @@ public interface CourseInfoMapper {
 
     int updateByPrimaryKey(CourseInfo record);
     
-    List<CourseInfo> listCourseInfosByClassId(@Param("classId") Integer classId);
+    List<CourseInfo> listCourseInfosByCourseName(String courseName);
+    
+    List<CourseInfo> listAllCourseInfos();
 }

@@ -2,6 +2,8 @@ package com.syc.tsgl.service.impl;
 
 import java.util.List;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +17,7 @@ public class StudentServiceImpl implements StudentService {
 	@Autowired
 	private StudentMapper studentMapper;
 	
-	@Override
-	public List<Student> listStudentsByClassId(Integer classId) {
-		// TODO Auto-generated method stub
-		return studentMapper.listStudentByClassId(classId);
-	}
-
+	
 	@Override
 	public int updateStudent(Student student) {
 		// TODO Auto-generated method stub
@@ -37,6 +34,12 @@ public class StudentServiceImpl implements StudentService {
 	public Student getStudentById(String studentId) {
 		// TODO Auto-generated method stub
 		return studentMapper.selectByPrimaryKey(studentId);
+	}
+
+	@Override
+	public List<Student> listAllStudents() {
+		// TODO Auto-generated method stub
+		return studentMapper.listAllStudents();
 	}
 
 }

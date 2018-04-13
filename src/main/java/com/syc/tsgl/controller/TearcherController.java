@@ -1,26 +1,20 @@
 package com.syc.tsgl.controller;
 
+
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 
 import com.syc.tsgl.entity.Tearcher;
 import com.syc.tsgl.service.TearcherService;
-import com.syc.tsgl.utils.ResponseMessage;
-import com.syc.tsgl.utils.Result;
-
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-
-@RestController
+@Controller
 @RequestMapping(value = "/api/tsgl")
-@Api("教师操作Controller")
 public class TearcherController {
 
 	@Autowired
@@ -28,9 +22,17 @@ public class TearcherController {
 	private TearcherService tearcherService;
 	
 	
-	@ApiOperation(value = "查找全部老师")
-	@GetMapping("/tearcher")
-	public ResponseMessage<List<Tearcher>> getStudentById() {
-		return Result.success(tearcherService.listAllTearchers());
+	@GetMapping(value="/tearcher")
+	public String listAllTeachers(Model model) {
+		List<Tearcher> teachers=tearcherService.listAllTearchers();
+		model.addAttribute("teachers", teachers);
+		return "teacher";
 	}
+	
+	
+	@GetMapping(value="/teacherchildindex")
+	public String toTeacherIndex(){
+		return "teacherchildindex";
+	}
+	
 }

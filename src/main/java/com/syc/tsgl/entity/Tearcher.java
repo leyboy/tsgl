@@ -14,6 +14,8 @@ public class Tearcher {
 
 	private Integer classid;  //上课班级id
 	
+	private String sex; //教师性别
+	
 	private Clazz clazz; //课程实体
 
 	public String getTeacherid() {
@@ -72,9 +74,19 @@ public class Tearcher {
 		this.clazz = clazz;
 	}
 
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
 	@Override
 	public String toString() {
 		return "Tearcher [teacherid=" + teacherid + ", teachername=" + teachername + ", college=" + college
-				+ ", teacherage=" + teacherage + ", title=" + title + ", classid=" + classid + ", clazz=" + clazz + "]";
+				+ ", teacherage=" + teacherage + ", title=" + title + ", classid=" + classid + ", sex=" + sex
+				+ ", clazz=" + clazz + "]";
 	}
+
 }

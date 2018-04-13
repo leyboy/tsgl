@@ -9,7 +9,10 @@ public class CourseInfo {
     private String courseinfochaptercontent;
 
     private Integer classid;
-
+    
+    private String courseName;
+    
+   
     public Integer getCourseinfoid() {
         return courseinfoid;
     }
@@ -42,11 +45,19 @@ public class CourseInfo {
         this.classid = classid;
     }
 
+	public String getCourseName() {
+		return courseName;
+	}
+
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+
 	@Override
 	public String toString() {
 		return "CourseInfo [courseinfoid=" + courseinfoid + ", courseinfochaptername=" + courseinfochaptername
-				+ ", courseinfochaptercontent=" + courseinfochaptercontent + ", classid=" + classid + "]";
+				+ ", courseinfochaptercontent=" + courseinfochaptercontent + ", classid=" + classid + ", courseName="
+				+ courseName + "]";
 	}
-    
-    
+   
 }
